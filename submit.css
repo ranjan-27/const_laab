@@ -1,0 +1,64 @@
+/* Reset default browser styles */
+body, h1, p, button {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Style the body */
+body {
+  background-color: #F0F4EF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Style the header */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: black;
+  font-size: 2.5em;
+}
+
+/* Style the main content area */
+main {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  background-color: #2F5575;
+}
+
+/* Style the message paragraph */
+p {
+  font-size: 1.2em;
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* Style the buttons */
+button {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: green;
+}
+

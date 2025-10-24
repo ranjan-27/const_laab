@@ -1,0 +1,4 @@
+/* Minimal fallback for main.html */
+body { background: linear-gradient(180deg,#09121a,#071028); color: #fff; font-family: 'Poppins', sans-serif; }
+a { color:#ffb84d; }
+.links a{ display:inline-block; margin:8px 0; }

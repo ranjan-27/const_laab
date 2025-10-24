@@ -1,0 +1,35 @@
+:root{
+    --bg: #0b1220;
+    --surface: #071028;
+    --muted: #9aa6bf;
+    --text: #e6eef8;
+    --accent: #4ea8ff;
+    --glass: rgba(255,255,255,0.04);
+    --card: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0));
+    --radius: 12px;
+}
+html,body{ height:100%; margin:0; font-family: Inter, Arial, sans-serif; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; }
+.container{ max-width:1100px; margin:22px auto; padding:0 16px; }
+.sec-header h1{ margin:0 0 6px 0; }
+.sec-header .muted{ color:var(--muted); margin-top:4px; }
+
+.controls{ display:flex; gap:10px; align-items:center; margin:12px 0 18px 0; }
+.controls input[type="search"]{ flex:1; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,0.04); background:rgba(255,255,255,0.02); color:var(--text); }
+.btn-icon{ background:transparent; border:none; color:var(--muted); padding:6px; cursor:pointer; border-radius:8px; }
+.btn-primary{ background:linear-gradient(90deg,var(--accent),#2b9eff); color:#fff; padding:8px 12px; border-radius:8px; border:none; cursor:pointer; }
+
+.sections-grid{ display:grid; grid-template-columns: 360px 1fr; gap:18px; align-items:start; }
+.parts-list{ background:var(--card); padding:12px; border-radius:var(--radius); border:1px solid var(--glass); max-height:72vh; overflow:auto; }
+.list{ list-style:none; padding:6px; margin:0; display:flex; flex-direction:column; gap:6px; }
+.part-item{ padding:10px; background:rgba(255,255,255,0.02); border-radius:8px; display:flex; align-items:center; justify-content:space-between; cursor:pointer; }
+.part-item:focus{ outline:2px solid rgba(78,168,255,0.18); box-shadow:0 8px 20px rgba(2,6,23,0.6); }
+.part-line .title{ font-weight:600; color:var(--text); }
+.fav-btn{ background:transparent; border:none; color:var(--accent); font-size:1.05rem; cursor:pointer; }
+
+.content{ padding:18px; border-radius:var(--radius); min-height:220px; background:var(--card); border:1px solid var(--glass); }
+.content h2{ margin-top:0; }
+
+.muted{ color:var(--muted); }
+.small{ font-size:.9rem; }
+
+@media (max-width:880px){ .sections-grid{ grid-template-columns: 1fr; } .parts-list{ max-height:40vh; } }

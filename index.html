@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constitution of India — Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+        /* Small page-specific overrides so changes are non-breaking */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            /* stronger overlay to improve contrast against the flag background */
+            background-image: linear-gradient(180deg, rgba(0,0,0,0.14), rgba(255,255,255,0.06)), url('https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <a href="index.html" class="logo">Constitution<span class="accent">Lab</span></a>
+                <small class="tag">Learn • Test • Explore</small>
+            </div>
+            <div class="header-actions">
+                <button id="theme-toggle" class="btn-icon" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="hero">
+        <section class="container login-card" aria-labelledby="login-heading">
+            <div class="card-left">
+                <h1 id="login-heading">Welcome back</h1>
+                <p class="muted">Sign in to access the Constitution content, quizzes and your saved progress.</p>
+                <ul class="features">
+                    <li>Curated articles and preamble</li>
+                    <li>Interactive quizzes and results</li>
+                    <li>Light / Dark theme</li>
+                </ul>
+            </div>
+
+            <div class="card-right">
+                <form id="loginForm" class="form" novalidate>
+                    <label class="visually-hidden" for="username">Username</label>
+                    <input type="email" id="username" name="username" placeholder="Email address" required>
+
+                    <label class="visually-hidden" for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+
+                    <button type="submit" class="btn-primary">Sign in</button>
+                    <p class="small muted">Forgot your password? <a href="know.html">View credentials</a></p>
+                    <div id="error-message" class="form-message" role="status" aria-live="polite"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 ConstitutionLab. Created for learning purposes.</p>
+        </div>
+    </footer>
+
+    <script src="ui.js"></script>
+</body>
+</html>

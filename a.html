@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indian Constitution Sections</title>
+  
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+</div>
+
+  <main class="container modern-sections">
+    <header class="sec-header">
+      <h1>Indian Constitution — Sections</h1>
+      <p class="muted">Browse parts of the Constitution. Use search and favorites to quickly find what you need.</p>
+    </header>
+
+    <div class="controls">
+      <input id="aSearch" type="search" placeholder="Search parts (e.g. Fundamental Rights)" aria-label="Search sections">
+      <button id="clearSearch" class="btn-icon" title="Clear search">✖</button>
+      <button id="showFavs" class="btn-primary small">Show favorites</button>
+    </div>
+
+    <div class="sections-grid">
+      <nav class="parts-list" aria-label="Parts list">
+        <ul id="sectionList" class="list"></ul>
+      </nav>
+
+      <article id="sectionContent" class="content card-right" tabindex="0" aria-live="polite">
+        <h2>Select a section to read</h2>
+        <p class="muted small">Click any item on the left or use keyboard arrows and Enter.</p>
+      </article>
+    </div>
+  </main>
+
+  <script>
+    // interactive content for a.html
+    const sections = [
+      { id: 'Preamble', title: 'Preamble', text: 'The Preamble is an introductory statement to the Constitution that articulates the ideals of justice, liberty, equality, and fraternity, reflecting the aspirations of the Indian people. It declares India to be a Sovereign, Socialist, Secular, Democratic Republic, setting the tone for the Constitution’s framework and principles.' },
+      { id: 'Part I', title: 'Part I: The Union and its Territory', text: 'This part establishes India as a Union, a single entity that cannot be disintegrated, and defines the Union and its territories. It outlines how new states may be admitted to the Union, and how boundaries of existing states or territories can be altered by Parliament. It emphasizes India’s unity and territorial integrity.' },
+      { id: 'Part II', title: 'Part II: Citizenship', text: 'This part defines who is a citizen of India and how citizenship can be acquired or lost. It clarifies the rights of people who migrated to India from Pakistan, as well as the Parliament’s power to legislate on matters of citizenship. It ensures that the process of becoming an Indian citizen is governed by clear and just rules.' },
+      { id: 'Part III', title: 'Part III: Fundamental Rights', text: 'This part provides a set of essential rights to all citizens, such as equality before the law, freedom of speech, freedom to practice religion, and protection from arbitrary actions. The rights ensure that the citizens are protected from any unconstitutional actions by the state. It also includes Article 32, which provides for remedies when rights are violated, giving individuals access to justice.' },
+      { id: 'Part IV', title: 'Part IV: Directive Principles of State Policy', text: 'This part sets out guidelines for the government to follow in order to achieve social and economic justice, promoting the welfare of the people. While not enforceable in courts, these principles serve as a benchmark for legislation and policy decisions aimed at reducing inequality and poverty, and ensuring the equitable distribution of wealth.' },
+      { id: 'Part IVA', title: 'Part IVA: Fundamental Duties', text: 'Part IVA lists the moral duties of Indian citizens to promote a sense of responsibility towards the state and society. These duties include respecting the Constitution, protecting the environment, and promoting harmony. While these duties are not legally enforceable, they reflect the values of responsible citizenship and national unity.' },
+      { id: 'Part V', title: 'Part V: The Union', text: 'This part defines the Union government’s structure, powers, and functions, which include the President, the Council of Ministers, Parliament, and the Judiciary. It lays out the framework for the administration of the central government, setting forth the powers of each branch, including the power of the President to issue ordinances and dissolve Parliament.' },
+      { id: 'Part VI', title: 'Part VI: The States', text: 'Part VI defines the powers and structure of state governments, including the office of the Governor, State Legislatures, and State Judiciary. It ensures that each state has a government to manage its own affairs, subject to the Constitution’s framework. It also defines the relationship between the Union and the states, especially in cases of emergencies.' },
+      { id: 'Part VIII', title: 'Part VIII: The Union Territories', text: 'This part deals with the administration of Union Territories (UTs), areas directly governed by the central government. It outlines the special arrangements for governing these territories, including provisions for legislation by Parliament and administrative control by the President, with some UTs having their own legislature.' },
+      { id: 'Part IX', title: 'Part IX: Panchayats', text: 'This part sets up a framework for the establishment and functioning of Panchayats (rural local self-governments) to promote decentralized governance. Panchayats aim to bring governance closer to rural citizens, enabling them to manage local affairs and participate in the decision-making process. It ensures that the government functions at multiple levels, ensuring grassroots democracy.' },
+      { id: 'Part IXA', title: 'Part IXA: Municipalities', text: 'Part IXA provides for urban local governance through Municipalities, ensuring that urban areas have decentralized administration. It aims to promote local self-governance in cities and towns, enabling citizens to actively participate in the management of their localities. It sets up structures for municipal elections, governance, and financial resources.' },
+      { id: 'Part X', title: 'Part X: The Scheduled and Tribal Areas', text: 'This part makes special provisions for the governance of tribal areas, ensuring their protection from exploitation. It provides for laws and administrative frameworks tailored to the specific needs of tribal communities, aiming to protect their cultural heritage and guarantee their participation in the nation’s growth.' },
+      { id: 'Part XI', title: 'Part XI: Relations between the Union and the States', text: 'Part XI defines the division of legislative, executive, and financial powers between the Union and the States. It outlines the jurisdiction of Parliament and State Legislatures, ensuring a clear division of authority. It also empowers the Union to legislate in case of national interest, allowing it to supersede state laws in certain matters.' },
+      { id: 'Part XII', title: 'Part XII: Finance, Property, Contracts, and Suits', text: 'This part regulates the financial relationship between the Union and States, covering taxes, the distribution of financial resources, and the management of property and contracts. It also outlines provisions for government liabilities, ensuring that both levels of government are held accountable for financial matters.' },
+      { id: 'Part XIII', title: 'Part XIII: Trade, Commerce, and Intercourse within India', text: 'This part ensures the free flow of trade, commerce, and communication across India, prohibiting restrictions on the movement of goods and people between states. It aims to foster economic integration and remove barriers that could hinder the growth of a unified national market.' },
+      { id: 'Part XIV', title: 'Part XIV: Services under the Union and States', text: 'This part governs the recruitment, conditions of service, and conduct of government employees at both Union and State levels. It creates the Union Public Service Commission (UPSC) and State Public Service Commissions (SPSCs), which ensure transparency and fairness in the recruitment process for civil services.' },
+      { id: 'Part XV', title: 'Part XV: Elections', text: 'This part governs the electoral process in India, providing for the establishment of the Election Commission, which oversees the conduct of free and fair elections to Parliament and State Legislatures. It lays out the procedures for the formation of the government and the conduct of elections, ensuring the democratic process.' },
+      { id: 'Part XVI', title: 'Part XVI: Special Provisions Relating to Certain Classes', text: 'This part provides for the representation and protection of backward classes, including Scheduled Castes (SC), Scheduled Tribes (ST), and other socially and economically disadvantaged groups. It ensures that these groups have adequate representation in Parliament and State Assemblies and helps promote social justice.' },
+      { id: 'Part XVII', title: 'Part XVII: Official Language', text: 'Part XVII deals with the official language of the Union, which is Hindi, and the recognition of other regional languages. It sets guidelines for the use of Hindi in official communications, while also respecting the linguistic diversity of India by allowing for the continued use of regional languages for official purposes.' },
+      { id: 'Part XVIII', title: 'Part XVIII: Emergency Provisions', text: 'This part outlines the procedures for the declaration of a National Emergency (due to war or internal disturbance), State Emergency (President\'s Rule), and Financial Emergency. These provisions empower the Union government to take control in exceptional situations to preserve national security and stability.' },
+      { id: 'Part XIX', title: 'Part XIX: Miscellaneous', text: 'This part includes various provisions regarding the immunity of the President, the powers of the Attorney General, and the Comptroller and Auditor General of India. It also includes provisions related to the power to issue writs, legal suits, and the administration of Union Territories.' },
+      { id: 'Part XX', title: 'Part XX: Amendment of the Constitution', text: 'This part provides the procedure for amending the Constitution, ensuring that it remains flexible to meet the changing needs of the country. Amendments can be made through Parliament, either with a simple majority or a two-thirds majority, depending on the nature of the amendment.' },
+      { id: 'Part XXI', title: 'Part XXI: Temporary, Transitional, and Special Provisions', text: 'This part contains special provisions for certain regions, such as Jammu and Kashmir (prior to its reorganization in 2019), and other transitional matters concerning the adoption of laws, implementation of policies, and the adjustment of governance after the Constitution came into force.' },
+      { id: 'Part XXII', title: 'Part XXII: Short Title, Commencement, and Repeal', text: 'This part specifies the short title of the Constitution, "The Constitution of India," its commencement date, and repeals all prior laws that were inconsistent with the new Constitution. It marks the transition from colonial rule to self-governance and establishes India as a republic.' }
+    ];
+
+    const listEl = document.getElementById('sectionList');
+    const contentEl = document.getElementById('sectionContent');
+    const searchEl = document.getElementById('aSearch');
+    const clearSearch = document.getElementById('clearSearch');
+    const showFavs = document.getElementById('showFavs');
+
+    // load favorites
+    function loadFavs(){ try { return new Set(JSON.parse(localStorage.getItem('aFavs')||'[]')) } catch(e){ return new Set() } }
+    function saveFavs(s){ localStorage.setItem('aFavs', JSON.stringify(Array.from(s))) }
+    let favs = loadFavs();
+
+    function renderList(filter=''){
+      listEl.innerHTML = '';
+      const q = filter.trim().toLowerCase();
+      const items = sections.filter(s => !q || s.title.toLowerCase().includes(q) || s.text.toLowerCase().includes(q));
+      for(const it of items){
+        const li = document.createElement('li');
+        li.className = 'part-item';
+        li.tabIndex = 0;
+        li.dataset.id = it.id;
+        li.innerHTML = `<div class="part-line"><span class="title">${it.title}</span><button class="fav-btn" aria-label="toggle favorite">${favs.has(it.id)?'★':'☆'}</button></div>`;
+        li.addEventListener('click', ()=> showSection(it.id));
+        li.addEventListener('keydown', (e)=>{ if(e.key==='Enter') showSection(it.id); });
+        const btn = li.querySelector('.fav-btn');
+        btn.addEventListener('click', (ev)=>{ ev.stopPropagation(); toggleFav(it.id); renderList(q); });
+        listEl.appendChild(li);
+      }
+      if(items.length===0) listEl.innerHTML = '<li class="muted">No sections match your search.</li>';
+    }
+
+    function showSection(id){
+      const s = sections.find(x=>x.id===id);
+      if(!s) return;
+      contentEl.innerHTML = `<h2>${s.title}</h2><p>${s.text}</p>`;
+      contentEl.focus();
+    }
+
+    function toggleFav(id){ if(favs.has(id)) favs.delete(id); else favs.add(id); saveFavs(favs); }
+
+    searchEl.addEventListener('input', ()=> renderList(searchEl.value));
+    clearSearch.addEventListener('click', ()=>{ searchEl.value=''; renderList(''); searchEl.focus(); });
+    showFavs.addEventListener('click', ()=>{ renderList(); // toggle to show only favs
+      const onlyFavs = sections.filter(s=> favs.has(s.id));
+      if(onlyFavs.length>0){ listEl.innerHTML=''; onlyFavs.forEach(it=>{ const li=document.createElement('li'); li.className='part-item'; li.tabIndex=0; li.dataset.id=it.id; li.innerHTML=`<div class="part-line"><span class="title">${it.title}</span><button class="fav-btn" aria-label="toggle favorite">${favs.has(it.id)?'★':'☆'}</button></div>`; li.addEventListener('click', ()=> showSection(it.id)); li.querySelector('.fav-btn').addEventListener('click', (ev)=>{ ev.stopPropagation(); toggleFav(it.id); renderList(); }); listEl.appendChild(li); }); } else { alert('No favorites yet. Click the star on a section to favorite it.'); } });
+
+    // initial render
+    renderList('');
+
+    // keyboard navigation: arrow keys move between list items
+    listEl.addEventListener('keydown', (e)=>{
+      const active = document.activeElement;
+      if(!active || !active.classList.contains('part-item')) return;
+      if(e.key === 'ArrowDown'){ const next = active.nextElementSibling; next && next.focus(); }
+      if(e.key === 'ArrowUp'){ const prev = active.previousElementSibling; prev && prev.focus(); }
+    });
+  </script>
+</body>
+</html>
