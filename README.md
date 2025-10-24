@@ -3,7 +3,7 @@
 This repository is a static HTML/CSS/JS site (no server-side code). The site includes pages such as:
 
 - `index.html` (login/landing)
-- `front.HTML` (articles explorer)
+- `front.html` (articles explorer)
 - `a.html` (sections explorer)
 - `quiz.html`, `result.html`, etc.
 
@@ -22,7 +22,7 @@ python -m http.server 8000 --bind 127.0.0.1
 
 Then open a browser at:
 - http://127.0.0.1:8000/index.html
-- http://127.0.0.1:8000/front.HTML
+- http://127.0.0.1:8000/front.html
 - http://127.0.0.1:8000/a.html
 
 To stop the server press `Ctrl+C` in the PowerShell window.
@@ -60,7 +60,7 @@ Notes:
 
 ## Offline-friendly option
 
-If you want the `front.HTML` page to work without any HTTP server (i.e. open via `file://`), I can embed the full `data.json` into `data-inline.js` so the articles data is loaded from a JS variable instead of a fetch. This produces a large file but guarantees the full dataset loads when opening files locally.
+If you want the `front.html` page to work without any HTTP server (i.e. open via `file://`), I can embed the full `data.json` into `data-inline.js` so the articles data is loaded from a JS variable instead of a fetch. This produces a large file but guarantees the full dataset loads when opening files locally.
 
 Ask me to "embed data.json inline" if you want that.
 
@@ -75,7 +75,7 @@ Ask me to "embed data.json inline" if you want that.
 
 If you want, I can also:
 - Add a short `package.json` and `gh-pages` npm script for `npm run deploy` style deploys.
-- Embed `data.json` inline into `data-inline.js` (large file) so `front.HTML` never needs a server.
+- Embed `data.json` inline into `data-inline.js` (large file) so `front.html` never needs a server.
 - Create a `deploy-to-netlify` script or `vercel.json` configuration.
 
 Tell me which of these (if any) you want next.
