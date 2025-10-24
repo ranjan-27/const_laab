@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Quiz Result</h1>
+    </header>
+    <main>
+        <div class="container card-right">
+            <h2 class="muted">Your Score</h2>
+            <p id="display_score" class="large"></p>
+            <div style="display:flex;gap:8px;margin-top:14px;">
+                <button class="btn-primary" onclick="location.href='quiz.html'">Retake</button>
+                <button class="btn-primary" onclick="location.href='index.html'">Home</button>
+            </div>
+
+            <section style="margin-top:20px;">
+                <h3 class="muted">Recent Attempts</h3>
+                <ul id="attempts_list" style="margin-top:8px;list-style:none;padding-left:0;"></ul>
+            </section>
+        </div>
+    </main>
+    <script>
+        const score = localStorage.getItem('quizScore');
+        document.getElementById('display_score').textContent = score === null ? 'No score found' : `Your Score: ${score}`;
+
+        const attempts = JSON.parse(localStorage.getItem('quizAttempts') || '[]');
+        const list = document.getElementById('attempts_list');
+        if(attempts.length === 0){
+            list.innerHTML = '<li class="muted">No attempts yet.</li>';
+        } else {
+            attempts.forEach(at => {
+                const li = document.createElement('li');
+                const d = new Date(at.date);
+                li.textContent = `${d.toLocaleString()} — Score: ${at.score}`;
+                list.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>

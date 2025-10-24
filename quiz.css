@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: rgb(255, 255, 255);
+  color: rgb(0, 11, 128);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100%;
+  margin-top:20px;
+  padding: 20px;
+}
+
+h1 {
+  text-align:center;
+  margin-bottom: 20px;
+  padding:40px;
+  font-size: 2.5rem;
+  color: rgb(4, 12, 98);
+  text-decoration:underline;
+}
+
+main {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border: 2px solid rgb(2, 17, 36);
+  border-radius: 30px;
+  /* box-shadow: 0 10px 25px ; */
+  width: 100%;
+  max-width: 600px;
+  margin-top: -30px; /* Pulls the main container up */
+}
+
+#quiz {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 20px;
+  display: block;
+  color: rgb(17, 5, 57);
+  font-size: 1.2rem;
+}
+
+input[type="radio"] {
+  margin-right: 15px;
+  transform: scale(1.2);
+  accent-color: #115fcb;
+}
+
+button {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 30px;
+  margin-right: 15px;
+  transition: background 0.4s, transform 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  transform: translateY(-3px);
+}
+
+button:active {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  transform: translateY(1px);
+}
+
+button:focus {
+  outline: none;
+}
+
+button:last-child {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+}
+
+button:last-child:hover {
+  background: linear-gradient(135deg, #feb47b, #ff7e5f);
+}
+
+button:last-child:active {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+}
+
