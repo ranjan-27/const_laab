@@ -1,8 +1,8 @@
 // ui.js — handles login and theme toggle
 
 (function(){
-  const correctUsername = 'hitk@gmail.com';
-  const correctPassword = 'hitk12';
+  // Demo site: do not store real credentials in source.
+  // For demo purposes accept any non-empty username/password.
 
   // Defer DOM-dependent initialization until the document is ready
   document.addEventListener('DOMContentLoaded', () => {
@@ -59,12 +59,9 @@
           return;
         }
 
-        if(username === correctUsername && password === correctPassword){
-          showSuccess('Login successful! Redirecting...');
-          setTimeout(() => location.href = 'main.html', 1200);
-        } else {
-          showError('Incorrect username or password.');
-        }
+        // Demo login: accept any non-empty credentials (no real auth on static site)
+        showSuccess('Login successful! Redirecting...');
+        setTimeout(() => location.href = 'main.html', 900);
       });
     }
 
